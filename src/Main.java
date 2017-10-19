@@ -10,9 +10,13 @@ public class Main {
             integerSet.add(Randomize.Randomize());
         }
 
-        System.out.println("Minimalna wartość to: " + MinValue.minValue(integerSet));
-        System.out.println("Maxymalna wartość to: " + MaxValue.maxValue(integerSet));
+        int max = MaxValue.maxValue(integerSet);
+
+        System.out.println("Minimalna wartość to: " + MinValue.minValue(integerSet, max));
+        System.out.println("Maxymalna wartość to: " + max);
+
         double avarage = AverageCalculator.average(integerSet);
+
         System.out.println("Srednia arytmetyczna to: " + avarage);
         ValuesAboveAverage.valuesAboveAverage(integerSet, avarage);
     }
