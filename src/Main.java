@@ -1,23 +1,30 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
+        Random random = new Random();
+        random.nextInt(1000);
 
-        Set<Integer> integerSet = new HashSet<>();
+        TreeSet<Integer> treeSet = new TreeSet<>();
 
-        for (int i = 0; i <= 50; i++) {
-            integerSet.add(Randomize.Randomize());
+        for (int i = 0; i < 50; i++) {
+            treeSet.add(random.nextInt(1000));
         }
+        System.out.println("Najmniejsza wartość: " + treeSet.first());
+        System.out.println("Największa wartość: " + treeSet.last());
+        int sum = 0;
+        for (Integer ints : treeSet) {
+            sum = sum + ints;
+        }
+        int avg = sum/treeSet.size();
+        System.out.println("Suma = " + sum);
+        System.out.println("Średnia = " + avg);
 
-        int max = MaxValue.maxValue(integerSet);
-
-        System.out.println("Minimalna wartość to: " + MinValue.minValue(integerSet, max));
-        System.out.println("Maxymalna wartość to: " + max);
-
-        double avarage = AverageCalculator.average(integerSet);
-
-        System.out.println("Srednia arytmetyczna to: " + avarage);
-        ValuesAboveAverage.valuesAboveAverage(integerSet, avarage);
+        for (Integer ints: treeSet) {
+            if (ints > avg){
+                System.out.print(ints + "; ");
+            }
+        }
     }
 }
